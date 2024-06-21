@@ -2,7 +2,7 @@ import express, { response } from "express";
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from "mongoose";
 import { Book } from './models/bookModel.js'
-import 
+import booksRoute from './routes/booksRoute.js'
 
 const app = express(); //express is our backend framework
 
@@ -14,6 +14,8 @@ app.get('/', (request, response) => {
     console.log(request)
     return response.status(234).send("App is live")
 })
+
+app.use('/books', booksRoute)
 
 // app.listen(PORT, () => {
 //     console.log(`App is listening on PORT: ${PORT}`);
