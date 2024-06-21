@@ -21,8 +21,8 @@ app.get('/', (request, response) => {
 //Route to creete and save new book 
 app.post('/books', async (request, response) => { //use async cuz we aare working with mongoos library
     try {
-        if(!request.body.title || request.body.author || request.body.publishYear){
-            // return response.status(400).send('Send all required fields: Title, Author, Publish year')
+        if(!request.body.title || !request.body.author || !request.body.publishYear){
+            return response.status(400).send('Send all required fields: Title, Author, Publish year')
         }
 
         //Create's an object newBook with prroperties title ..., request.body typically contains data sent from the client side
@@ -59,7 +59,7 @@ app.get('/books', async (request, response) => {
 
 
 //Route to get a single book from the database
-app.get('/books', async (request, response) => {
+app.get('/books/:id', async (request, response) => {
     try {
 
         const { id } = request.params;
@@ -72,6 +72,29 @@ app.get('/books', async (request, response) => {
         return response.status(500).send(error.message)
     }
 });
+
+//Route to update a book
+app.put('/books/:id', async (request, response) => {
+    try {
+        if(!request.body.title || !request.body.author || !request.body.publishYear){
+            return response.status(400).send('Send all required fields: Title, Author, Publish year')
+        }
+
+        const  { id } = request.params
+        const result = await Book.findById(id, request.body)
+
+        if(!result){
+            return response.status(404).json({ message : 'Boook not found'})
+        }
+
+        return response.status(200).send({ message: 'Book updated succesfully' })
+
+    } catch (error) {
+        console.log(error.message)
+        return response.status(500).send(error.message)
+    }
+    
+})
 
 //Conect to database
 mongoose.connect(mongoDBURL)
