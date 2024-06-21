@@ -110,7 +110,7 @@ app.delete('/books/:id', async (request, response) => {
         return response.status(200).json({message: 'Book deleted sucessfully'})
     } catch (error) {
         console.log(error.message)
-        return response.status(500).send(error.message)
+        return response.status(500).send({ error:})
     }
 })
 
