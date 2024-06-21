@@ -87,7 +87,8 @@ app.put('/books/:id', async (request, response) => {
             return response.status(404).json({ message : 'Boook not found'})
         }
 
-        return response.status(200).send({ message: 'Book updated succesfully' })
+        // return response.status(200).send({ message: 'Book updated succesfully' })
+        return response.status(200).json(result)
 
     } catch (error) {
         console.log(error.message)
