@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 // Route to create and save new book 
-app.post('/books', async (request, response) => { //use async cuz we aare working with mongoos library
+router.post('/books', async (request, response) => { //use async cuz we aare working with mongoos library
     try {
         if(!request.body.title || !request.body.author || !request.body.publishYear){
             return response.status(400).send('Send all required fields: Title, Author, Publish year')
@@ -28,7 +28,7 @@ app.post('/books', async (request, response) => { //use async cuz we aare workin
 })
 
 // Route to get all books from database
-app.get('/books', async (request, response) => {
+router.get('/books', async (request, response) => {
     try {
         const books = await Book.find({})//passing empty object to find() to get list of all books from DB and save in books variable
         return response.status(200).json({  //returns data to the client
@@ -43,7 +43,7 @@ app.get('/books', async (request, response) => {
 });
 
 // Route to get a single book from the database
-app.get('/books/:id', async (request, response) => {
+router.get('/books/:id', async (request, response) => {
     try {
 
         const { id } = request.params;
@@ -58,7 +58,7 @@ app.get('/books/:id', async (request, response) => {
 });
 
 // Route to update a book
-app.put('/books/:id', async (request, response) => {
+router.put('/books/:id', async (request, response) => {
     try {
         if(!request.body.title || !request.body.author || !request.body.publishYear){
             return response.status(400).send('Send all required fields: Title, Author, Publish year')
@@ -81,7 +81,7 @@ app.put('/books/:id', async (request, response) => {
 })
 
 // Route to delete a book
-app.delete('/books/:id', async (request, response) => {
+router.delete('/books/:id', async (request, response) => {
     try {
         const { id } = request.params
         
@@ -97,3 +97,5 @@ app.delete('/books/:id', async (request, response) => {
         return response.status(500).send({ message: error.message })
     }
 })
+
+export default router;
