@@ -96,6 +96,11 @@ app.put('/books/:id', async (request, response) => {
     
 })
 
+//Route to delete a book
+app.delete('/delete/:id', (request, response) => {
+    
+})
+
 //Conect to database
 mongoose.connect(mongoDBURL)
 .then(() => {
