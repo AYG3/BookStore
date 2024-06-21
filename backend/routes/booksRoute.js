@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 // Route to create and save new book 
-// router.post('/books', async (request, response) => { // --- '/books' are redundant so we'll
+// router.post('/books', async (request, response) => { // --- '/books' are redundant so we removed them - they are handles in index.js by the middleware
 router.post('/', async (request, response) => { //use async cuz we aare working with mongoos library
     try {
         if(!request.body.title || !request.body.author || !request.body.publishYear){
@@ -44,7 +44,7 @@ router.get('/', async (request, response) => {
 });
 
 // Route to get a single book from the database
-router.get('/books/:id', async (request, response) => {
+router.get('/:id', async (request, response) => {
     try {
 
         const { id } = request.params;
@@ -59,7 +59,7 @@ router.get('/books/:id', async (request, response) => {
 });
 
 // Route to update a book
-router.put('/books/:id', async (request, response) => {
+router.put('/:id', async (request, response) => {
     try {
         if(!request.body.title || !request.body.author || !request.body.publishYear){
             return response.status(400).send('Send all required fields: Title, Author, Publish year')
@@ -82,7 +82,7 @@ router.put('/books/:id', async (request, response) => {
 })
 
 // Route to delete a book
-router.delete('/books/:id', async (request, response) => {
+router.delete('/:id', async (request, response) => {
     try {
         const { id } = request.params
         
