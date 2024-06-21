@@ -45,6 +45,28 @@ app.post('/books', async (request, response) => { //use async cuz we aare workin
 app.get('/books', async (request, response) => {
     try {
         const books = await Book.find({})//passing empty object to find() to get list of all books from DB and save in books variable
+        return response.status(200).json({  //returns data to the client
+            count : books.length,
+            data : books
+        })
+
+    } catch (error) {
+        console.log(error.message)
+        return response.status(500).send(error.message)
+    }
+});
+
+
+
+//Route to get a single book from the database
+app.get('/books', async (request, response) => {
+    try {
+
+        const { id } = request.params;
+
+        const book = await Book.findById(id)
+        return response.status(200).json(book)
+
     } catch (error) {
         console.log(error.message)
         return response.status(500).send(error.message)
