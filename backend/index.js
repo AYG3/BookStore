@@ -10,7 +10,6 @@ const app = express(); //express is our backend framework
 //Middleware for parsing request body
 app.use(express.json())
 
-
 app.get('/', (request, response) => {
     console.log(request)
     return response.status(234).send("App is live")
