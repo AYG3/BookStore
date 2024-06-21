@@ -20,9 +20,18 @@ app.post('route/', async (request, response) => { //use async cuz we aare workin
         if(!request.body.title || request.body.author || request.body.publishYear){
             return response.status(400).send('Send all required fields: Title, Author, Publish year')
         }
+
+        //Create's an object newBook with prroperties title ..., request.body typically contains data sent from the client side
+        const newBook = {
+            title: request.body.title,
+            author: request.body.author,
+            publishYear: request.body.publishYear
+        }
+
+        const book = await Book.create(newBook);
         
     } catch (error) {
-        
+        consosle.log(error)
     }
 })
 //Conect to database
