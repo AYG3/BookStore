@@ -5,6 +5,10 @@ import { Book } from './models/bookModel.js'
 
 const app = express(); //express is our backend framework
 
+//Middleware for parsing request body
+app.use(express.json())
+
+
 app.get('/', (request, response) => {
     console.log(request)
     return response.status(234).send("App is live")
@@ -15,7 +19,7 @@ app.get('/', (request, response) => {
 // });
 
 //Route to creete and save new book 
-app.post('route/', async (request, response) => { //use async cuz we aare working with mongoos library
+app.post('books/', async (request, response) => { //use async cuz we aare working with mongoos library
     try {
         if(!request.body.title || request.body.author || request.body.publishYear){
             return response.status(400).send('Send all required fields: Title, Author, Publish year')
@@ -27,8 +31,10 @@ app.post('route/', async (request, response) => { //use async cuz we aare workin
             author: request.body.author,
             publishYear: request.body.publishYear
         }
-
+        
+        //creates new document in database and stores it in 'book'
         const book = await Book.create(newBook);
+        return response.status(201).send(book);
         
     } catch (error) {
         consosle.log(error)
