@@ -97,8 +97,21 @@ app.put('/books/:id', async (request, response) => {
 })
 
 //Route to delete a book
-app.delete('/delete/:id', (request, response) => {
-    
+app.delete('/books/:id', async (request, response) => {
+    try {
+        const { id } = request.params
+        
+        const result = Book.findByIdAndDelete(id)
+
+        if (!result){
+            return response.status(404).send('Book not deleted, prollly invalid id :(')
+        }
+
+        return response.status(200).json({message: 'Book deleted sucessfully'})
+    } catch (error) {
+        console.log(error.message)
+        return response.status(500).send(error.message)
+    }
 })
 
 //Conect to database
