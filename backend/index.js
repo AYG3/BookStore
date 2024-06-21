@@ -19,10 +19,10 @@ app.get('/', (request, response) => {
 // });
 
 //Route to creete and save new book 
-app.post('books/', async (request, response) => { //use async cuz we aare working with mongoos library
+app.post('/books', async (request, response) => { //use async cuz we aare working with mongoos library
     try {
         if(!request.body.title || request.body.author || request.body.publishYear){
-            return response.status(400).send('Send all required fields: Title, Author, Publish year')
+            // return response.status(400).send('Send all required fields: Title, Author, Publish year')
         }
 
         //Create's an object newBook with prroperties title ..., request.body typically contains data sent from the client side
