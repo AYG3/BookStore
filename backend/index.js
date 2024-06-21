@@ -24,5 +24,5 @@ mongoose.connect(mongoDBURL)
     });
 })
 .catch((error) => {
-    consdole.log(error)
+    console.log(error)
 })
