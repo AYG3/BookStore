@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from "mongoose";
 import { Book } from './models/bookModel.js'
@@ -40,6 +40,16 @@ app.post('/books', async (request, response) => { //use async cuz we aare workin
         consosle.log(error)
     }
 })
+
+//Route to get all books from database
+app.get('/books', async (request, response) => {
+    try {
+        const books = await Book.find({})//passing empty object to find() to get list of all books from DB and save in books variable
+    } catch (error) {
+        console.log(error.message)
+        return response.status(500).send(error.message)
+    }
+});
 
 //Conect to database
 mongoose.connect(mongoDBURL)
