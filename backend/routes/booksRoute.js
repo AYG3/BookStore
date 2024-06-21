@@ -5,7 +5,8 @@ const router = express.Router();
 
 
 // Route to create and save new book 
-router.post('/books', async (request, response) => { //use async cuz we aare working with mongoos library
+// router.post('/books', async (request, response) => { // --- '/books' are redundant so we'll
+router.post('/', async (request, response) => { //use async cuz we aare working with mongoos library
     try {
         if(!request.body.title || !request.body.author || !request.body.publishYear){
             return response.status(400).send('Send all required fields: Title, Author, Publish year')
@@ -28,7 +29,7 @@ router.post('/books', async (request, response) => { //use async cuz we aare wor
 })
 
 // Route to get all books from database
-router.get('/books', async (request, response) => {
+router.get('/', async (request, response) => {
     try {
         const books = await Book.find({})//passing empty object to find() to get list of all books from DB and save in books variable
         return response.status(200).json({  //returns data to the client
