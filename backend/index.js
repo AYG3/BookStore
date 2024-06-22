@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.get('/', (request, response) => {
     console.log(request)
-    return response.status(234).send("App is live")
+    return response.status(234).send("App is now live")
 })
 
 
