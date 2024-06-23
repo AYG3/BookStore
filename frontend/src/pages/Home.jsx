@@ -60,6 +60,15 @@ const Home = () => {
                         </td>
                         <td className='border-slate-700 rounded-md text-center'>
                             <div className='flex justify-center gap-'></div>
+                            <Link to={`/books/details/${book._id}`} className='text-2x1  text-green-800'>
+                                <BsInfoCircle />
+                            </Link>
+                            <Link to={`/books/edit/${book._id}`} className='text-2x1  text-yellow-600'>
+                                <AiOutlineEdit />
+                            </Link>
+                            <Link to={`/books/delete/${book._id}`} className='text-2x1  text-red-600'>
+                                <MdOutlineDelete />
+                            </Link>
                         </td>
                     </tr>
                 })}
