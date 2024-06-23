@@ -18,14 +18,14 @@ app.get('/', (request, response) => {
 
 //Middleware for CORS Policy
 //Option 1 Allow all origin of defult cors(*)
-// app.use(cors())
+app.use(cors())
 //Option 2 Allow custom Origins
-app.use(cors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type']
-}
-))
+// app.use(cors({
+//     origin: 'http://localhost:3000',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type']
+// }
+// ))
 
 //Middleware for books actions
 app.use('/books', booksRoute)
