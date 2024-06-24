@@ -44,7 +44,8 @@ const Home = () => {
                 </tr>
             </thead>
             <tbody>
-                {books.map((book, index) => (
+                {books.map((book, index) => {
+                    return (
                     <tr key={books._id} className='h-8'>
                         <td className='border-slate-700 rounded-md text-center'>
                             {index + 1}
@@ -71,7 +72,8 @@ const Home = () => {
                             </Link>
                         </td>
                     </tr>
-                ))}
+                );
+            })}
             </tbody>
 
         </table>
