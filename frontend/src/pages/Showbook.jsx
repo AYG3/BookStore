@@ -1,9 +1,38 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios';
+import { Link, useParams } from 'react-router-dom';
+import BackButton from '../components/BackButton' //Note - test - no curly braces normally
+import Spinner from '../components/Spinner'
 
 const Showbook = () => {
+  const [book, setBook ] = useState([])
+  const [load, setLoading ] = useState(false)
+  const { id } = useParams()
+
+  useEffect(() => {
+    setLoading(true)
+    axios.get(`http://localhost:5555/books/${id}`)
+    .then((response) => {
+      setBook(response.data)
+      setLoading(false)
+    })
+    .catch((error) => {
+      console.log(error)
+      setLoading(false)
+    }) 
+  })
   return (
-    <div>
-      ShowBook page
+    <div className='p-4'>
+       <BackButton /> {/* has default route */}
+      <h1 className='text-3xl my-4'> ShowBook page </h1>
+      {loading ? (
+        <Spinner />
+      ): (
+        <div>
+          
+        </div>
+      )}
+      
     </div>
   )
 }
