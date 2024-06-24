@@ -25,6 +25,7 @@ router.post('/', async (request, response) => { //use async cuz we aare working 
         
     } catch (error) {
         consosle.log(error)
+        return response.status(500).send(error.message)
     }
 })
 
