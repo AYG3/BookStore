@@ -6,7 +6,7 @@ import Spinner from '../components/Spinner'
 
 const Showbook = () => {
   const [book, setBook ] = useState([])
-  const [load, setLoading ] = useState(false)
+  const [loading, setLoading ] = useState(false)
   const { id } = useParams()
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const Showbook = () => {
           </div>
           <div className='my-4'>
             <span className='text-xl mr-4 0 text-gray-500'>Last Update Time </span > 
-            <span>{ new Date(book.createdAt).toString() }</span>
+            <span>{ new Date(book.updatedAt ).toString() }</span>
           </div>
         </div>
       )}
