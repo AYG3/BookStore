@@ -18,7 +18,7 @@ const CreateBook = () => {
     }
     setLoading(true)
     axios.get('http://localhost:5555/books', data) //pass in the data as the secind argument
-    .then((response) => {
+    .then(() => {
       setLoading(false)
       navigate('/')
     })
