@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import Spinner from '../components/Spinner'
 import  AiOutlineEdit from 'react-icons/ai'
 import  BsInfoCircle  from 'react-icons/bs'
@@ -10,6 +11,7 @@ import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 const Home = () => { 
     const [books, setBooks ] = useState([])
     const [loading, setLoading] = useState(false)
+
     useEffect(() => {
         setLoading(true)
         axios.get('http://localhost:5555/books')
@@ -21,7 +23,7 @@ const Home = () => {
             console.log(error)
             setLoading(false)
         })
-    })
+    }, [])
   return (
     <div className='p-4'>
       <div className='flex justify-between items-center'>
@@ -46,7 +48,7 @@ const Home = () => {
             <tbody>
                 {books.map((book, index) => {
                     return (
-                    <tr key={books._id} className='h-8'>
+                    <tr key={book._id} className='h-8'>
                         <td className='border-slate-700 rounded-md text-center'>
                             {index + 1}
                         </td>
