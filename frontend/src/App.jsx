@@ -16,7 +16,9 @@ const App = () => {
     //   <Route path='/books/edit/:id' element={ <EditBook /> } />
     //   <Route path='/books/delete/:id' element={ <DeleteBook /> } />
     // </Routes>
-    <div className='text-5xl font-bold bg-red-500'> Checkers </div>
+    <div className='text-5xl font-bold bg-red-500'>
+       Checkers
+    </div>
   )
 }
 
