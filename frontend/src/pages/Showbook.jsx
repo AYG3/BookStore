@@ -20,7 +20,7 @@ const Showbook = () => {
       console.log(error)
       setLoading(false)
     }) 
-  })
+  }, [])
   return (
     <div className='p-4'>
        <BackButton /> {/* has default route */}
