@@ -8,4 +8,4 @@ const Showbook = () => {
   )
 }
 
-export default Showbook
+export default Showbook;
