@@ -4,8 +4,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Spinner from '../components/Spinner'
 // import  AiOutlineEdit from 'react-icons/ai'
-import  BsInfoCircle  from 'react-icons/bs'
-import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
+// import  BsInfoCircle  from 'react-icons/bs'
+// import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 
 
 const Home = () => { 
@@ -29,7 +29,7 @@ const Home = () => {
       <div className='flex justify-between items-center'>
         <h1 className='text-3xl my-8'> Books List </h1>
         <Link  to='books/create'>
-            <MdOutlineAddBox className='text-sky-800 text-4x1' />
+            {/* <MdOutlineAddBox className='text-sky-800 text-4x1' /> */}
         </Link>
       </div>
       {loading ? (
@@ -64,13 +64,13 @@ const Home = () => {
                         <td className='border-slate-700 rounded-md text-center'>
                             <div className='flex justify-center gap-'></div>
                             <Link to={`/books/details/${book._id}`} className='text-2x1  text-green-800'>
-                                <BsInfoCircle />
+                                {/* <BsInfoCircle /> */}
                             </Link>
                             <Link to={`/books/edit/${book._id}`} className='text-2x1  text-yellow-600'>
-                                <AiOutlineEdit />
+                                {/* <AiOutlineEdit /> */}
                             </Link>
                             <Link to={`/books/delete/${book._id}`} className='text-2x1  text-red-600'>
-                                <MdOutlineDelete />
+                                {/* <MdOutlineDelete /> */}
                             </Link>
                         </td>
                     </tr>
