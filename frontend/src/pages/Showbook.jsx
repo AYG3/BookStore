@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton' //Note - test - no curly braces normally
 import Spinner from '../components/Spinner'
 
