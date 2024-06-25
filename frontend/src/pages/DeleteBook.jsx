@@ -13,8 +13,8 @@ const DeleteBook = () => {
     setLoading(true)
     axios.delete(`http://localhost:5555/books/${id}`)
     .then(() => {
-      navigate('/')
       setLoading(false)
+      navigate('/')
     })
     .catch((error) => {
       setLoading(false)
