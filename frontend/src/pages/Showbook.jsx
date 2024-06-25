@@ -23,7 +23,7 @@ const Showbook = () => {
   }, [])
   return (
     <div className='p-4'>
-       <BackButton /> {/* has default route */}
+       <p> <BackButton /> </p> {/* has default route */}
       <h1 className='text-3xl my-4'> ShowBook page </h1>
       {loading ? (
         <Spinner />
