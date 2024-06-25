@@ -19,7 +19,7 @@ const CreateBook = () => {
       publishYear,
     }
     setLoading(true)
-    axios.get('http://localhost:5555/books', data) //pass in the data as the second argument
+    axios.post('http://localhost:5555/books', data) //pass in the data as the second argument
     .then(() => {
       setLoading(false)
       navigate('/')
