@@ -30,8 +30,16 @@ const CreateBook = () => {
   }
 
   return (
-    <div className=''>
-      CreateBookser
+    <div className='p-4'>
+      <h1> Create Book </h1>
+      { loading ? <Spinner /> : ''}
+      <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto'>
+        <div className='my-4'>
+          <label className='text-xl mr-4  text-gray-500' />
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className='border-2 border-gray-500 px-4'/>
+        </div>
+
+      </div>
     </div>
   )
 }
