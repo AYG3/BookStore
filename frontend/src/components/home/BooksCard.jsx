@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BooksCard = () => {
+const BooksCard = ( { books} ) => {
   return (
     <div>
       Card  for books to

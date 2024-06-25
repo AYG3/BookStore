@@ -1,12 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Spinner from '../components/Spinner'
 import  {AiOutlineEdit} from 'react-icons/ai'
 import  {BsInfoCircle}  from 'react-icons/bs'
-import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
+import { MdOutlineDelete } from 'react-icons/md'
 
 
-const BooksList = () => {
+const BooksList = ( { books }) => {
   return (
     <table className='w-full border-seperate border-spacing-2'>
             <thead>
