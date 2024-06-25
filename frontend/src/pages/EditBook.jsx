@@ -29,7 +29,7 @@ const EditBook = () => {
     })
   }, [id])
   
-  const handleSaveBook = () => {
+  const handleEditBook = () => {
     const data = {
       title,
       author,
@@ -66,8 +66,8 @@ const EditBook = () => {
           <input type="text" value={publishYear} onChange={(e) => setpublishYear(e.target.value)} className='border-2 border-gray-500 px-4 py-2 w-full'/>
         </div>
 
-        <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
-          Save
+        <button className='p-2 bg-sky-300 m-8' onClick={handleEditBook}>
+          Edit
         </button>
       </div>
     </div>
