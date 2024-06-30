@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate, useParams} from 'react-router-dom'
 import Spinner from '../components/Spinner'
+import { useSnackbar } from 'notistack'
 
 const EditBook = () => {
   const [ title, setTitle ] = useState('')
   const [ author, setAuthor ] = useState('')
   const [ publishYear, setpublishYear ] = useState('')
   const [ loading, setLoading ] = useState(false)
+  const { enqueueSnackbar } = useSnackbar()
   const navigate = useNavigate() //to navigate to main page after book is created
 
   const { id } = useParams()
@@ -38,11 +40,13 @@ const EditBook = () => {
     axios.put(`http://localhost:5555/books/${id}`, data) //pass in the data as the second argument
     .then(() => {
       setLoading(false)
+      enqueueSnackbar('Book Edited Successfully', {variant: 'success'})
       navigate('/')
     })
     .catch((error) => {
       setLoading(false)
-      alert('Error: pls check console')
+      // alert('Error: pls check console')
+      enqueueSnackbar('Error', {variant: 'error'})
       console.log(error)
     })
   }
