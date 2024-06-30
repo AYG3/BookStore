@@ -13,7 +13,7 @@ const CreateBook = () => {
   const [ loading, setLoading ] = useState(false)
   
   const { enqueueSnackbar } = useSnackbar()
-  
+
   const navigate = useNavigate() //to navigate to main page after book is created
   
 
@@ -27,11 +27,13 @@ const CreateBook = () => {
     axios.post('http://localhost:5555/books', data) //pass in the data as the second argument
     .then(() => {
       setLoading(false)
+      enqueueSnackbar('Book Created Successfully', {variant: 'success'})
       navigate('/')
     })
     .catch((error) => {
       setLoading(false)
-      alert('Error: pls check console')
+      // alert('Error: pls check console')
+      enqueueSnackbar('Error', {variant: 'error'})
       console.log(error)
     })
   }
