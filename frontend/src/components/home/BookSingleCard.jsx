@@ -6,7 +6,7 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { MdDeleteOutline } from 'react-icons/md';
 
-const BookSingleCArd = ( {book} ) => {
+const BookSingleCard = ( {book} ) => {
   return (
     <div key={book._id} className='border-2 border-gray-500 rounded-lg px-4 py-2 m-4 relative hover:shadow-x1'>
           <h1 className='absolute top-1 right-2 px-4 py-l bg-red-300 rounded-lg'>{book.publishYear}</h1>
@@ -38,4 +38,4 @@ const BookSingleCArd = ( {book} ) => {
   )
 }
 
-export default BookSingleCArd
+export default BookSingleCard
