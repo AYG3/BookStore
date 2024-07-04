@@ -3,8 +3,7 @@ import { Book } from '../models/bookModel.js'
 
 const router = express.Router();
 
-//Middleware for parsing request body - aka: Our get, post,... requests cannot work without it
-app.use(express.json())
+
 
 // Route to create and save new book 
 // router.post('/books', async (request, response) => { // --- '/books' are redundant so we removed them - they are handles in index.js by the middleware
