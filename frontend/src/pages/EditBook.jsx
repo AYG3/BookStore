@@ -45,7 +45,6 @@ const EditBook = () => {
     })
     .catch((error) => {
       setLoading(false)
-      // alert('Error: pls check console')
       enqueueSnackbar('Error', {variant: 'error'})
       console.log(error)
     })
